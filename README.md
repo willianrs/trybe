@@ -87,7 +87,6 @@ O estado eventual de uma promise pendente pode ser fulfilled com um valor ou rej
 
 Uma promise é considerada resolvida se for cumprida ou rejeitada, mas não pendente.
 
-![alt text](image.jpg)
 
 ## Métodos de uma Promise
 ---
