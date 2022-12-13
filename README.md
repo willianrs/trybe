@@ -101,3 +101,17 @@ Uma promise é considerada resolvida se for cumprida ou rejeitada, mas não pend
 ## Recursos Adicionais
 * [Loupe](http://latentflip.com/loupe) - Loupe é uma pequena visualização para ajudá-lo a entender como a pilha de chamadas/loop/loop/fila de retorno de chamada do JavaScript interage entre si.
 * [CodeSandbox](https://codesandbox.io/) - CodeSandbox é uma plataforma online que permite à você testar seus códigos em fiversaslinguagens, sem se preocupar com a instalação ou configuração de pacotes e bibliotecas.
+
+
+## Referências
+https://www.markdownguide.org/cheat-sheet/
+
+https://blog.betrybe.com/tecnologia/callback/
+
+http://rocketseat.com.br
+
+https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar
+
+https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Using_promises
