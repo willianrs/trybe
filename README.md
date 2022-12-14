@@ -1,3 +1,5 @@
+# Teste Trybe
+
 # JavaScript Promises
 
 ## 🤷 O que preciso saber primeiro?
@@ -12,9 +14,9 @@ Enquanto isso, o JavaScript não trava a execução do código na espera da resp
 
 **Vejamos um exemplo:**
 
-```
+```jsx
 function primeiraTarefa() {
-  //Aqui, utilizamos o setTimeout para atrasar propositalmente a execução da primeira tarefa
+  //Aqui, o setTimeout atrasa propositalmente a execução da primeira tarefa
   setTimeout(function () {
     console.log("Essa é a 1ª Tarefa");
   }, 2000);
@@ -26,7 +28,6 @@ function segundaTarefa() {
 
 primeiraTarefa();
 segundaTarefa();
-
 ```
 
 Quando rodamos o exemplo acima, temos a impressão de que a função segundaTarefa() é executada primeiro.
@@ -45,7 +46,7 @@ Na programação com JavaScript o processo é o mesmo, os comandos são executad
 
 **Vejamos um exemplo:**
 
-```
+```jsx
 function imprimeNaTela(){
   console.log('Mensagem 01')
   console.log('Mensagem 02')
@@ -56,7 +57,6 @@ function imprimeNaTela(){
 imprimeNaTela()
 
 console.log('Mensagem 05')
-
 ```
 
 No exemplo acima, você pode perceber que ao chamar a função **imprimeNaTela()**, o JavaScript executa os comandos de impressão das mensagens de 01 a 04. Somente depois de finalizar aos comandos internos da função, ele passa para a linha seguinte, imprimindo a mensagem 05.
@@ -72,7 +72,7 @@ Podemos visualizar isso alterando o exemplo anterior, acrescentando uma função
 
 **Vejamos um exemplo:**
 
-```
+```jsx
 function imprimeNaTela(){
   console.log('Mensagem 01')
   setTimeout( function espera(){
@@ -85,7 +85,6 @@ function imprimeNaTela(){
 imprimeNaTela()
 
 console.log('Mensagem 05')
-
 ```
 
 No exemplo acima, encapsulamos as mensagens 02, 03 e 04 em uma função chamada **espera()**, dentro de uma **setTimeout()** que dura dois segundos.
@@ -94,6 +93,7 @@ Ao executar esse trecho de código, você perceberá que o resultado exibido no 
 
 > Mensagem 01
 > 
+> 
 > Mensagem 05
 > 
 > Mensagem 02
@@ -101,6 +101,7 @@ Ao executar esse trecho de código, você perceberá que o resultado exibido no 
 > Mensagem 03
 > 
 > Mensagem 04
+> 
 
 Ou seja, o JavaScript irá seguir os seguintes passos:
 
@@ -133,9 +134,7 @@ Para entender melhor esse conceito, recomendo que você acesse o site: [http://l
 > 2. [https://www.javascripttutorial.net/javascript-event-loop/](https://www.javascripttutorial.net/javascript-event-loop/)
 > 3. [https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous)
 
-
-----
-
+---
 
 ## 🤝 O que é uma Promise?
 
@@ -143,62 +142,56 @@ Promise em inglês significa promessa! E quando falamos de Promises no JavaScrip
 
 Assim como acontece no mundo real, uma promessa não garante que algo realmanete vá acontecer, afinal, é apenas uma promessa que pode dar certo, ou não.
 
-**Por exemplo:** 
-Precisamos fazer o upload de fotos para nosso álbum em uma rede social. Ao inciar o processo, você escolhe as fotos que deseja adicionar à sua rede e clica no botão de upload. A partir daí, só nos resta esperar até que todos os arquivos sejam carregados. 
+**Por exemplo:**
+Precisamos fazer o upload de fotos para nosso álbum em uma rede social. Ao inciar o processo, você escolhe as fotos que deseja adicionar à sua rede e clica no botão de upload. A partir daí, só nos resta esperar até que todos os arquivos sejam carregados.
 
 Porém, problemas podem acontecer: um dos arquivos pode estar corrompido, a conexão com a internet pode falhar, ou mesmo uma queda de energia em sua casa pode atrapalhar todo o processo. Ou seja, nada garante que o processo vai finalizar com sucesso, o que temos é apenas uma promesa!
 
 Observe que em uma Promise a operação acontece de forma **assíncrona**, pois ela permite que você continue executando outras tarefas enquanto tenta concluir a tarefa que foi 'prometida'. No JavaScript, Promises são objetos e são utilizadas como ferramenta para lidar com as possíveis situações de um código assíncrono.
 
-
 ## Como criar uma Promise?
+
 Como já foi mencionado, Promise é um objeto do JavaScript que permite a execução de códigos de forma assíncrona, logo, sendo um objeto, sua sintaxe de criação é semelhante ao que acontece nas outras linguagens. Para isso, utilizaremos a palavra reservada *new*:
 
-```
-  new Promisse () 
+```jsx
+  new Promisse ()
 ```
 
-Todavia, é importante você saber que para funcionar corretamente, uma promise precisa que sejam informadas duas funções como parâmetro, uma para resolver a promise e outra para rejeitá-la: 
+Todavia, é importante você saber que para funcionar corretamente, uma promise precisa que sejam informadas duas funções como parâmetro, uma para resolver a promise e outra para rejeitá-la:
 
-```
+```jsx
   new Promisse (resolve, reject) => { }
 ```
+
 As funções **resolve** e **reject**, que são passadas como parâmetro do Objeto Promise, possuem as rotinas que devem ser executadas quando a promise consegue uma resolução, ou sofre algum problema, respectivamente.
 
 ## Estados de uma Promise
 
 No momemnto em que lançamos uma promise ela poderá assumir vários estados diferentes ao longo do seu ciclo de execução. Vamos conhecer um pouco sobre esses estados:
 
-* Pending - Estado inicial do objeto quando iniciamos a promise, em espera.
-* FulFilled - Estado que indica sucesso na execução da promise.
-* Rejected - Estado que indica a rejeição da promise, geralmente causa por algum erro que impeça sua execução.
-* Settled - Estado que sinaliza o fim do ciclo de vida da promise, com sucesso ou não.
+- Pending - Estado inicial do objeto quando iniciamos a promise, em espera.
+- FulFilled - Estado que indica sucesso na execução da promise.
+- Rejected - Estado que indica a rejeição da promise, geralmente causa por algum erro que impeça sua execução.
+- Settled - Estado que sinaliza o fim do ciclo de vida da promise, com sucesso ou não.
 
-> Observação: Uma promise é considerada resolvida se for **cumprida** ou **rejeitada**, mas **não pendente**.
-
+> Observação: Uma promise é considerada resolvida se for cumprida ou rejeitada, mas não pendente.
+> 
 
 ## Método .then()
 
-
-
 ## Método .catch()
-
-
 
 ## Método .finally()
 
-
-
 ## Método .all()
-
 
 O estado eventual de uma promise pendente pode ser fulfilled com um valor ou rejected com um motivo (erro). Quando uma dessas opções ocorre, os manipuladores associados enfileirados pelo método then de uma promise são chamados. Se a promise já tiver sido cumprida ou rejeitada quando um manipulador correspondente for anexado, o manipulador será chamado, portanto, não há condição de corrida entre a conclusão de uma operação assíncrona e a anexação de seus manipuladores.
 
-
-
 ## Exercícios
+
 1. Analise o código a seguir:
-```
+
+```jsx
 function primeiraTarefa() {
   //Aqui, utilizamos o setTimeout para atrasar propositalmente a execução da primeira tarefa
   setTimeout(function () {
@@ -212,8 +205,8 @@ function segundaTarefa() {
 
 primeiraTarefa();
 segundaTarefa();
-
 ```
+
 Qual função callback é apresentada neste exemplo?
 
 a) primeiraTarefa()
@@ -227,9 +220,10 @@ d) segundatarefa()
 e) console.log()
 
 ---
-2. Analise o código abaixo e a afirmação que segue?
 
-```
+1. Analise o código abaixo e a afirmação que segue?
+
+```jsx
 function imprimeNaTela(){
   console.log('Mensagem 01')
   console.log('Mensagem 02')
@@ -240,8 +234,8 @@ function imprimeNaTela(){
 imprimeNaTela()
 
 console.log('Mensagem 05')
-
 ```
+
 Esse código apresenta um modelo de código assíncrono.
 
 a) verdadeiro
@@ -250,9 +244,9 @@ b) falso
 
 ---
 
-3. Analize o código a seguir para responder à próxima questão:
+1. Analize o código a seguir para responder à próxima questão:
 
-```
+```jsx
 function imprimeNaTela(){
   console.log('Mensagem 01')
   setTimeout( function espera(){
@@ -265,12 +259,14 @@ function imprimeNaTela(){
 imprimeNaTela()
 
 console.log('Mensagem 05')
-
 ```
+
 Qual a saída será gerada após a execução desse trecho de código?
 
 a)
+
 > Mensagem 05
+> 
 > 
 > Mensagem 01
 > 
@@ -279,9 +275,12 @@ a)
 > Mensagem 03
 > 
 > Mensagem 04
+> 
 
 b)
+
 > Mensagem 05
+> 
 > 
 > Mensagem 04
 > 
@@ -290,9 +289,12 @@ b)
 > Mensagem 02
 > 
 > Mensagem 01
+> 
 
 c)
+
 > Mensagem 01
+> 
 > 
 > Mensagem 05
 > 
@@ -301,9 +303,12 @@ c)
 > Mensagem 04
 > 
 > Mensagem 02
+> 
 
 d)
+
 > Mensagem 01
+> 
 > 
 > Mensagem 02
 > 
@@ -312,9 +317,12 @@ d)
 > Mensagem 04
 > 
 > Mensagem 05
+> 
 
 e)
+
 > Mensagem 01
+> 
 > 
 > Mensagem 05
 > 
@@ -323,31 +331,34 @@ e)
 > Mensagem 03
 > 
 > Mensagem 04
-
-
-
-
-
-
-
-
+> 
 
 ## Gabarito
+
 Questão 1.
+
 > C
+> 
 
 Questão 2.
+
 > B
+> 
 
 Questão 3.
+
 > E
+> 
 
 Questão 4.
+
 > C
+> 
 
 Questão 5.
-> C
 
+> C
+> 
 
 ---
 
