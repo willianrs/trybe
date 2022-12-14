@@ -242,8 +242,37 @@ Nas últimas linhas do trecho de código, temos a aplicação dos métodos *.the
 > Existem vários outros métodos que podemos utilizar em conjunto com as promises, porém, os métodos que vimos até aqui já são suficientes para que você consiga desenvovler pequenas aplicações e exercitar os conceitos que vimos hoje!
 > 
 
-## Método .all()
+## Async/Await
 
+Existe uma maneira um pouco mais elegante de escrever Promises e para isso, utilizamos as palavras reservadas **Async** e **Await**, que significam Assíncrono e Esperar, respectivamente. 
+
+Dessa forma, conseguimos escrever um código que tem uma estrutura síncrona (executando uma cosia de cada vez) mas que executa de forma assíncrona.
+
+Além disso, utilizando essas palavaras conseguimos encapsular as Promises.
+
+Vejamos um exemplo:
+```jsx
+async function getUser(userId) {
+ let response = await fetch(`https://api.com/api/user/${userId}`);
+ let userData = await response.json();
+ return userData.name; // nas linhas de return não é necessário usar await
+}
+```
+Vamos analisar o código acima:
+
+* Na primeira linha, temos a palavra **async** aparece antes da function, indicando que internamente existe pelo menos uma Promise. 
+
+* Na segunda linha palavra **await** precede qualquer a expressão que venha a retornar uma promise.
+
+* Na terceira linha, transformamos a resposta da nossa promise em um formato *json* para facilitar a leitura dos dados.
+
+* E na última linha, devolvemos a informação utilizando apenas a palavra *return* e o dado que queremos recuperar.
+
+**E o try/catch?**
+Uma função declarada como async tem como valor de retorno da função uma Promise. Caso a Promise consiga ser resolvida normalmente, esta retornará um valor, caso aconteça um erro, podemos usar o try/catch como estamos acostumados em programas síncronos.
+
+
+> Lembrando que await só funciona se estiver dentro de outra função async. Caso não esteja, você ainda pode usar .then() normalmente:
 
 
 # Exercícios
