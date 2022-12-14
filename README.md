@@ -221,7 +221,7 @@ e) console.log()
 
 ---
 
-1. Analise o código abaixo e a afirmação que segue?
+2. Analise o código abaixo e a afirmação que segue?
 
 ```jsx
 function imprimeNaTela(){
@@ -244,7 +244,7 @@ b) falso
 
 ---
 
-1. Analize o código a seguir para responder à próxima questão:
+3. Analize o código a seguir para responder à próxima questão:
 
 ```jsx
 function imprimeNaTela(){
