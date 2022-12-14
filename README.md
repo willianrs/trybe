@@ -221,7 +221,7 @@ c) function()
 d) segundatarefa()
 e) console.log()
 
--
+--
 
 ## Gabarito
 Questão 1.
