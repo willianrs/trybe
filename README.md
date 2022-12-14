@@ -93,11 +93,14 @@ No exemplo acima, encapsulamos as mensagens 02, 03 e 04 em uma função chamada 
 Ao executar esse trecho de código, você perceberá que o resultado exibido no console será:
 
 > Mensagem 01
-> Mensagem 05
-> Mensagem 02
-> Mensagem 03
-> Mensagem 04
 > 
+> Mensagem 05
+> 
+> Mensagem 02
+> 
+> Mensagem 03
+> 
+> Mensagem 04
 
 Ou seja, o JavaScript irá seguir os seguintes passos:
 
@@ -130,43 +133,100 @@ Para entender melhor esse conceito, recomendo que você acesse o site: [http://l
 > 2. [https://www.javascripttutorial.net/javascript-event-loop/](https://www.javascripttutorial.net/javascript-event-loop/)
 > 3. [https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous)
 
----
+
+----
+
 
 ## 🤝 O que é uma Promise?
 
-O sentido de Promise em JavaScript é similar ao literal: Uma pessoa te passa o contato do Telegram e pede para que você mande uma mensagem pra ela, prometendo que vai responder... O que não temos como saber se vai acontecer.
+Promise em inglês significa promessa! E quando falamos de Promises no JavaScript, estamos nos referindo a exatamente isso: uma promessa de que algo pode acontecer!
 
-Quando enviamos uma requisição de dados a uma API, temos uma promessa de que estes dados irão chegar, mas enquanto isso não acontece, o sistema deve continuar rodando. Se, por exemplo, o servidor estiver caído, essa promessa de dados pode não se cumprir, e temos que lidar com isso. As Promises trabalham neste contexto - elas são a ferramenta que o JavaScript utiliza para lidar com código assíncrono.
+Assim como acontece no mundo real, uma promessa não garante que algo realmanete vá acontecer, afinal, é apenas uma promessa que pode dar certo, ou não.
 
-Uma Promise é um proxy para um valor não necessariamente conhecido quando a promise é criada. Ele permite que você associe manipuladores ao valor de sucesso ou motivo de falha de uma ação assíncrona. Isso permite que métodos assíncronos retornem valores como métodos síncronos: em vez de retornar imediatamente o valor final, o método assíncrono retorna uma promise para fornecer o valor em algum momento no futuro.
+**Por exemplo:** 
+Precisamos fazer o upload de fotos para nosso álbum em uma rede social. Ao inciar o processo, você escolhe as fotos que deseja adicionar à sua rede e clica no botão de upload. A partir daí, só nos resta esperar até que todos os arquivos sejam carregados. 
+
+Porém, problemas podem acontecer: um dos arquivos pode estar corrompido, a conexão com a internet pode falhar, ou mesmo uma queda de energia em sua casa pode atrapalhar todo o processo. Ou seja, nada garante que o processo vai finalizar com sucesso, o que temos é apenas uma promesa!
+
+Observe que em uma Promise a operação acontece de forma **assíncrona**, pois ela permite que você continue executando outras tarefas enquanto tenta concluir a tarefa que foi 'prometida'. No JavaScript, Promises são objetos e são utilizadas como ferramenta para lidar com as possíveis situações de um código assíncrono.
+
 
 ## Como criar uma Promise?
+Como já foi mencionado, Promise é um objeto do JavaScript que permite a execução de códigos de forma assíncrona, logo, sendo um objeto, sua sintaxe de criação é semelhante ao que acontece nas outras linguagens. Para isso, utilizaremos a palavra reservada *new*:
 
-- -
+```
+  new Promisse () 
+```
+
+Todavia, é importante você saber que para funcionar corretamente, uma promise precisa que sejam informadas duas funções como parâmetro, uma para resolver a promise e outra para rejeitá-la: 
+
+```
+  new Promisse (resolve, reject) => { }
+```
+As funções **resolve** e **reject**, que são passadas como parâmetro do Objeto Promise, possuem as rotinas que devem ser executadas quando a promise consegue uma resolução, ou sofre algum problema, respectivamente.
 
 ## Estados de uma Promise
 
----
+No momemnto em que lançamos uma promise ela poderá assumir vários estados diferentes ao longo do seu ciclo de execução. Vamos conhecer um pouco sobre esses estados:
 
-Uma Promise está em um destes estados:
+* Pending - Estado inicial do objeto quando iniciamos a promise, em espera.
+* FulFilled - Estado que indica sucesso na execução da promise.
+* Rejected - Estado que indica a rejeição da promise, geralmente causa por algum erro que impeça sua execução.
+* Settled - Estado que sinaliza o fim do ciclo de vida da promise, com sucesso ou não.
 
-pending: estado inicial, nem cumprido nem rejeitado.
-fulfilled: significa que a operação foi concluída com sucesso.
-rejected: significa que a operação falhou.
+> Observação: Uma promise é considerada resolvida se for **cumprida** ou **rejeitada**, mas **não pendente**.
+
+
+## Método .then()
+
+
+
+## Método .catch()
+
+
+
+## Método .finally()
+
+
+
+## Método .all()
+
 
 O estado eventual de uma promise pendente pode ser fulfilled com um valor ou rejected com um motivo (erro). Quando uma dessas opções ocorre, os manipuladores associados enfileirados pelo método then de uma promise são chamados. Se a promise já tiver sido cumprida ou rejeitada quando um manipulador correspondente for anexado, o manipulador será chamado, portanto, não há condição de corrida entre a conclusão de uma operação assíncrona e a anexação de seus manipuladores.
 
-Uma promise é considerada resolvida se for cumprida ou rejeitada, mas não pendente.
 
-## Métodos de uma Promise
-
----
 
 ## Exercícios
+1. Analise o código a seguir:
+```
+function primeiraTarefa() {
+  //Aqui, utilizamos o setTimeout para atrasar propositalmente a execução da primeira tarefa
+  setTimeout(function () {
+    console.log("Essa é a 1ª Tarefa");
+  }, 2000);
+}
 
----
+function segundaTarefa() {
+  console.log("Essa é a 2ª Tarefa");
+}
+
+primeiraTarefa();
+segundaTarefa();
+
+```
+Qual função callback é apresentada neste exemplo?
+a) primeiraTarefa()
+b) setTimeout()
+c) function()
+d) segundatarefa()
+e) console.log()
+
+-
 
 ## Gabarito
+Questão 1.
+> C
+
 
 ---
 
