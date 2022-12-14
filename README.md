@@ -177,17 +177,76 @@ No momemnto em que lançamos uma promise ela poderá assumir vários estados dif
 > Observação: Uma promise é considerada resolvida se for cumprida ou rejeitada, mas não pendente.
 > 
 
-## Método .then()
+## Métodos .then(), .catch() e .finally()
+Sempre que uma promise assume o estado **Fulfilled**, significa que ela conseguiu resolver a promessa e possui um resultado, positivo ou negativo.
 
-## Método .catch()
+Nesse caso, podemos utilizar o método **.then()** para tratar esse resultado, exibindo-o no console como segue no exemplo:
 
-## Método .finally()
+```jsx
+const promessa = new Promise ((resolve, reject) => {
+	setTimeout(() => resolve ('Promessa resolvida'), 2000)
+})
+ 
+promessa.then(res => console.log(res))
+
+//Imprime 'Promessa resolvida'
+```
+Se em todo caso, acontecer algum problema que impeça a execução correta das funções, precisamos definir um tratamento para um possível erro e fazemos isso utilizando o método **.catch()**:
+
+```jsx
+const promessa = new Promise((resolve, reject) => {
+  //setTimeout(() => resolve("Promessa resolvida"), 2000);
+  reject("Ocorreu um problema");
+});
+
+promessa
+  .then((res) => console.log(res))
+  .catch((erro) => console.log(erro));
+```
+Observe que no código acima, comentamos a linha que define a função 'resolve', simulando uma situação de falha, logo, a função **.catch()** irá executar.
+
+Ao finalizar uma aplicação com promise, podemos utilizar o método **.finally()** para indicar qual ação desejamos executar para confirmar o término da tarefa.
+
+## Exemplo de Aplicação
+
+Podemos entender melhor o uso desses métodos revisando o exemplo que citamos anteriormente, em que você precisa fazer o upload de suas fotos favoritas para sua rede social :
+
+```jsx
+let fotos_carregadas = true;
+
+console.log("Upload de fotos");
+
+const promessa = new Promise((resolve, reject) => {
+  if (fotos_carregadas) {
+    return resolve("Upload completo!");
+  }
+  return reject("Falha no carregamento!");
+});
+
+console.log("aguardando...");
+
+promessa
+  .then((result) => console.log(result))
+  .catch((erro) => console.log(erro))
+  .finally(() => console.log("Fim da Aplicação"));
+```
+Na primeira linha do nosso exemplo, declaramos uma variável de controle, chamada *fotos_carregdas* que nos dirá se as fotos conseguiram ser carregadas ou não.
+
+Em seguida, exibimos uma mensagem no console para informar a ação que estamos tentando executar.
+
+Na sequência, construímos nossa Promise e utilizamos estruturas de decisão para ajustar o resultado de acordo com a variável de controle, se o valor dela for *true*, significa que as fotos foram carregadas e termos um retorno da função *resolve()*, caso contrário a função *reject()* informará que houve um erro.
+
+Nas últimas linhas do trecho de código, temos a aplicação dos métodos *.then()*, *.catch()* e *.finally()*, imprimindo suas respectivas mensagens no console.
+
+
+> Existem vários outros métodos que podemos utilizar em conjunto com as promises, porém, os métodos que vimos até aqui já são suficientes para que você consiga desenvovler pequenas aplicações e exercitar os conceitos que vimos hoje!
+> 
 
 ## Método .all()
 
-O estado eventual de uma promise pendente pode ser fulfilled com um valor ou rejected com um motivo (erro). Quando uma dessas opções ocorre, os manipuladores associados enfileirados pelo método then de uma promise são chamados. Se a promise já tiver sido cumprida ou rejeitada quando um manipulador correspondente for anexado, o manipulador será chamado, portanto, não há condição de corrida entre a conclusão de uma operação assíncrona e a anexação de seus manipuladores.
 
-## Exercícios
+
+# Exercícios
 
 1. Analise o código a seguir:
 
@@ -333,7 +392,26 @@ e)
 > Mensagem 04
 > 
 
-## Gabarito
+4. O JavaScript faz uso de uma estrutura que empilha as tarefas à medida em que elas são chamadas (Call Stack) e, sempre que uma tarefa não pode ser concluída a tempo, direciona as tarefas pendentes para uma fila de espera (Callback Queue).
+
+Como chamamos esse recurso do JavaScript?
+
+a) Callback
+b) Event Loop
+c) Asynchronous
+d) Arrow Functions
+e) Queue Functions
+
+5. Questão
+a) 
+b)
+c)
+d)
+e)
+
+
+---
+# Gabarito
 
 Questão 1.
 
@@ -352,7 +430,7 @@ Questão 3.
 
 Questão 4.
 
-> C
+> B
 > 
 
 Questão 5.
@@ -362,12 +440,12 @@ Questão 5.
 
 ---
 
-## Recursos Adicionais
+# Recursos Adicionais
 
 - [Loupe](http://latentflip.com/loupe) - Loupe é uma pequena visualização para ajudá-lo a entender como a pilha de chamadas/loop/loop/fila de retorno de chamada do JavaScript interage entre si.
 - [CodeSandbox](https://codesandbox.io/) - CodeSandbox é uma plataforma online que permite à você testar seus códigos em fiversaslinguagens, sem se preocupar com a instalação ou configuração de pacotes e bibliotecas.
 
-## Referências
+# Referências
 
 [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
 
