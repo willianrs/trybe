@@ -215,16 +215,137 @@ segundaTarefa();
 
 ```
 Qual função callback é apresentada neste exemplo?
+
 a) primeiraTarefa()
+
 b) setTimeout()
+
 c) function()
+
 d) segundatarefa()
+
 e) console.log()
 
---
+---
+2. Analise o código abaixo e a afirmação que segue?
+
+```
+function imprimeNaTela(){
+  console.log('Mensagem 01')
+  console.log('Mensagem 02')
+  console.log('Mensagem 03')
+  console.log('Mensagem 04')
+}
+
+imprimeNaTela()
+
+console.log('Mensagem 05')
+
+```
+Esse código apresenta um modelo de código assíncrono.
+
+a) verdadeiro
+
+b) falso
+
+---
+
+3. Analize o código a seguir para responder à próxima questão:
+
+```
+function imprimeNaTela(){
+  console.log('Mensagem 01')
+  setTimeout( function espera(){
+    console.log('Mensagem 02')
+    console.log('Mensagem 03')
+    console.log('Mensagem 04')}
+    , 2000)
+}
+
+imprimeNaTela()
+
+console.log('Mensagem 05')
+
+```
+Qual a saída será gerada após a execução desse trecho de código?
+
+a)
+> Mensagem 05
+> 
+> Mensagem 01
+> 
+> Mensagem 02
+> 
+> Mensagem 03
+> 
+> Mensagem 04
+
+b)
+> Mensagem 05
+> 
+> Mensagem 04
+> 
+> Mensagem 03
+> 
+> Mensagem 02
+> 
+> Mensagem 01
+
+c)
+> Mensagem 01
+> 
+> Mensagem 05
+> 
+> Mensagem 03
+> 
+> Mensagem 04
+> 
+> Mensagem 02
+
+d)
+> Mensagem 01
+> 
+> Mensagem 02
+> 
+> Mensagem 03
+> 
+> Mensagem 04
+> 
+> Mensagem 05
+
+e)
+> Mensagem 01
+> 
+> Mensagem 05
+> 
+> Mensagem 02
+> 
+> Mensagem 03
+> 
+> Mensagem 04
+
+
+
+
+
+
+
+
 
 ## Gabarito
 Questão 1.
+> C
+
+Questão 2.
+> B
+
+Questão 3.
+> E
+
+Questão 4.
+> C
+
+Questão 5.
 > C
 
 
