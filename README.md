@@ -30,36 +30,90 @@ Na verdade, a função **primeiraTarefa()** é a primeira a ser executada de fat
 
 Depois que a função **segundaTarefa()** finalizou sua execução, o JavaScript retornou para a fila de tareas pendentes e concluiu a função **primeiraTarefa()**.
 
-### ↔️ Sincrono
-Síncrono refere-se a comunicação em tempo real onde cada parte recebe ( e se necessário, processa e responde) mensagens instantaneamente (ou o mais próximo possível do instantâneo).
+### ↔️ Síncrono
+Quando usamos o termo Síncrono nos referimos a uma comunicação que acontece em tempo real, onde cada parte recebe (e se necessário, processa e responde) mensagens instantaneamente (ou o mais próximo possível do instantâneo). Além diso, um código síncrono espera uma ação ser finalizada antes de partir para a próxima ação.
 
-Vamos entender melhor o sincronismo, imagine que você recebe a ligação de um amigo no seu celular, durante a chamada, você e seu amigo conseguem conversar naturalmente, um respondendo ao outro instantaneamente, sem precisar esperar por outras ações.
+Vamos entender melhor o sincronismo com a seguinte analogia: imagine que você recebe a ligação de um amigo no seu celular, durante a chamada, você e seu amigo conseguem conversar naturalmente, um respondendo ao outro instantaneamente assim que cada um termina sua fala, sem precisar esperar por outras ações.
 
-Na programação, o processo é o mesmo, os códigos que rodam de forma assíncrona conseguem executar seus comandos em sequência, um após o outro, fazendo com que o prrograma execute de forma fluida.
+Na programação com JavaScript o processo é o mesmo, os comandos são executados sequencialmente um após o outro, quase que imediatamente, fazendo com que o programa execute de forma fluida.
 
+**Vejamos um exemplo:**
 ```
-function soma(num1, num2) {
-  return num1 + num2;
+function imprimeNaTela(){
+  console.log('Mensagem 01')
+  console.log('Mensagem 02')
+  console.log('Mensagem 03')
+  console.log('Mensagem 04')
 }
 
-console.log(soma(2, 2)) // 4
+imprimeNaTela()
+
+console.log('Mensagem 05')
 ```
+
+No exemplo acima, você pode perceber que ao chamar a função **imprimeNaTela()**, o JavaScript executa os comandos de impressão das mensagens de 01 a 04. Somente depois de finalizar aos comandos internos da função, ele passa para a linha seguinte, imprimindo a mensagem 05.
+
 ### Assíncrono
 Podemos entender a programação assíncrona como sendo a execução de uma tarefa em segundo plano, ou seja, sabendo que o JavaScript vai tentar executar um comando por vez, ele vai separar as tarefas em duas categorias: 
 * as tarefas que ele pode executar agora, sem depender de outras rotinas de código 
 * as tarefas que ele vai executar depois, quandoo outras rotinas finalizarem.
 
+Podemos visualizar isso alterando o exemplo anterior, acrescentando uma função **setTimeout()** que pede ao JavaScript para aguardar alguns segundos antes de prosseguir com a tarefa.
+
+**Vejamos um exemplo:**
+```
+function imprimeNaTela(){
+  console.log('Mensagem 01')
+  setTimeout( function espera(){
+    console.log('Mensagem 02')
+    console.log('Mensagem 03')
+    console.log('Mensagem 04')}
+    , 2000)
+}
+
+imprimeNaTela()
+
+console.log('Mensagem 05')
+```
+
+No exemplo acima, encapsulamos as mensagens 02, 03 e 04 em uma função chamada **espera()**, dentro de uma **setTimeout()** que dura dois segundos.
+
+Ao executar esse trecho de código, você perceberá que o resultado exibido no console será:
+> ```
+> Mensagem 01
+> Mensagem 05
+> Mensagem 02
+> Mensagem 03
+> Mensagem 04
+> ```
+
+Ou seja, o JavaScript irá seguir os seguintes passos:
+1. imprimir 'Mensagem 01'
+2. colocar a função **imprimeNaTela()** em espera por 2 segundos
+3. imprimir 'Mensagem 05'
+4. retomar a função **imprimeNaTela()**
+5. imprimir 'Mensagem 02'
+6. imprimir 'Mensagem 03'
+7. imprimir 'Mensagem 04'
 
 ### Event Loop
-Também conhecida como chamada de retorno, uma callback é uma função que possui outra função como parâmetro, logo, ela só consegue finalizar a execução de sua tarefa quando a função mais interna (que foi passada como parâmetro) finalizar e retornar um resultado.
+Até aqui já entendemos que, por padrão, o JavaScript só executa uma tarefa por vez, de forma síncrona. Mas também vimos que podemos programá-lo de forma assíncrona, fazendo com que várias tarefas possam acontecer em tempo e ordens distintas. Mas como o JavaScript consegue fazer isso?
+
+A resposta é simples: o JavaScript consegue organizar as tarefas fazendo o **Event Loop**.
+
+Event Loop é como chamamos o gerenciamento das diversas tarefas que o JavaScript consegue executar de forma assíncrona. 
+
+Para isso, o JS faz uso de uma estrutura que empilha as tarefas à medida em que elas são chamadas (Call Stack) e, sempre que uma tarefa não pode ser concluída a tempo, direciona as tarefas pendentes para uma fila de espera (Callback Queue)
+
+Para entender melhor esse conceito, recomendo que você acesse o site: http://latentflip.com/loupe . Nele você pode executar o exemplo que acabamos de analisar e acompanhar como o JavaScript gerencia cada tarefa!
 
 
 > 💡 Se você ainda tem alguma dúvida sobre o que acabamos de falar, recomendo que faça uma estudo mais aprofundado sobre o assunto, antes de continuarmos.
 > 
 > Deixaremos aqui alguns links de materiais gratuítos, disponíveis na internet, que podem te ajudar a compreender melhor todos os conceitos:
-> 1. link1
-> 2. link2
-> 3. link3 
+> 1. https://blog.betrybe.com/tecnologia/callback/
+> 2. https://www.javascripttutorial.net/javascript-event-loop/
+> 3. https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous
 
 ### 
 
@@ -107,6 +161,8 @@ https://www.markdownguide.org/cheat-sheet/
 
 https://blog.betrybe.com/tecnologia/callback/
 
+https://www.javascripttutorial.net/javascript-event-loop/
+
 http://rocketseat.com.br
 
 https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar
@@ -114,3 +170,5 @@ https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar
 https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous
 
 https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Using_promises
+
+https://www.devmedia.com.br/programacao-assincrona-em-javascript-com-promises/33184
