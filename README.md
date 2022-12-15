@@ -1,5 +1,8 @@
 # Teste Trybe
 
+[https://youtu.be/P85WwGLasZg](https://youtu.be/P85WwGLasZg)
+
+
 # JavaScript Promises
 
 ## 🤷 O que preciso saber primeiro?
@@ -494,8 +497,6 @@ Questão 5.
 [https://blog.betrybe.com/tecnologia/callback/](https://blog.betrybe.com/tecnologia/callback/)
 
 [https://www.javascripttutorial.net/javascript-event-loop/](https://www.javascripttutorial.net/javascript-event-loop/)
-
-[http://rocketseat.com.br](http://rocketseat.com.br/)
 
 [https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar](https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar)
 
