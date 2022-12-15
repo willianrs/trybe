@@ -418,6 +418,7 @@ e)
 > Mensagem 04
 > 
 
+---
 4. O JavaScript faz uso de uma estrutura que empilha as tarefas à medida em que elas são chamadas (Call Stack) e, sempre que uma tarefa não pode ser concluída a tempo, direciona as tarefas pendentes para uma fila de espera (Callback Queue).
 
 Como chamamos esse recurso do JavaScript?
@@ -432,7 +433,7 @@ d) Arrow Functions
 
 e) Queue Functions
 
-
+---
 5. Qual a finalidade dos métodos .then() e .catch(), respectivamente?
 
 a) Executa sempre que uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo;
