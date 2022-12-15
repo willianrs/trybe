@@ -429,14 +429,19 @@ d) Arrow Functions
 e) Queue Functions
 
 5. Qual a finalidade dos métodos .then() e .catch(), respectivamente?
+
 a) Executa sempre que uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo;
    Executa caso aconteça algum problema que impeça a execução correta das funções.
+   
 b) Executa somente quando uma promise assume o estado Rejected;
    Executa caso aconteça algum problema que impeça a execução correta das funções.
+   
 c) Executa sempre que uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo
    Executa caso aconteça algum problema que impeça a execução correta das funções.  
+   
 d) Executa somente quando uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo
    Executa sempre ao final da função, indepente dos resultados obtidos.
+   
 e) Executa somente quando uma promise assume o estado Pending;
    Executa sempre ao final da função, indepente dos resultados obtidos.
 
