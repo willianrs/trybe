@@ -239,7 +239,7 @@ Na sequência, construímos nossa Promise e utilizamos estruturas de decisão pa
 Nas últimas linhas do trecho de código, temos a aplicação dos métodos *.then()*, *.catch()* e *.finally()*, imprimindo suas respectivas mensagens no console.
 
 
-> Existem vários outros métodos que podemos utilizar em conjunto com as promises, porém, os métodos que vimos até aqui já são suficientes para que você consiga desenvovler pequenas aplicações e exercitar os conceitos que vimos hoje!
+> Existem vários outros métodos que podemos utilizar em conjunto com as promises, porém, os métodos que vimos até aqui já são suficientes para que você consiga desenvolver pequenas aplicações e exercitar os conceitos que vimos hoje!
 > 
 
 ## Async/Await
@@ -248,7 +248,7 @@ Existe uma maneira um pouco mais elegante de escrever Promises e para isso, util
 
 Dessa forma, conseguimos escrever um código que tem uma estrutura síncrona (executando uma cosia de cada vez) mas que executa de forma assíncrona.
 
-Além disso, utilizando essas palavaras conseguimos encapsular as Promises.
+Além disso, utilizando essas palavras conseguimos encapsular as Promises.
 
 Vejamos um exemplo:
 ```jsx
@@ -260,15 +260,17 @@ async function getUser(userId) {
 ```
 Vamos analisar o código acima:
 
-* Na primeira linha, temos a palavra **async** aparece antes da function, indicando que internamente existe pelo menos uma Promise. 
+* Na primeira linha, temos a palavra **async** que aparece antes de function, indicando que internamente existe pelo menos uma Promise. 
 
-* Na segunda linha palavra **await** precede qualquer a expressão que venha a retornar uma promise.
+* Na segunda linha palavra **await** precede qualquer a expressão que venha a retornar uma promise. Neste caso, temos um método **fetch()** que busca um usuário específico na API.
 
 * Na terceira linha, transformamos a resposta da nossa promise em um formato *json* para facilitar a leitura dos dados.
 
 * E na última linha, devolvemos a informação utilizando apenas a palavra *return* e o dado que queremos recuperar.
 
+
 **E o try/catch?**
+
 Uma função declarada como async tem como valor de retorno da função uma Promise. Caso a Promise consiga ser resolvida normalmente, esta retornará um valor, caso aconteça um erro, podemos usar o try/catch como estamos acostumados em programas síncronos.
 
 
@@ -355,7 +357,6 @@ a)
 
 > Mensagem 05
 > 
-> 
 > Mensagem 01
 > 
 > Mensagem 02
@@ -368,7 +369,6 @@ a)
 b)
 
 > Mensagem 05
-> 
 > 
 > Mensagem 04
 > 
@@ -383,7 +383,6 @@ c)
 
 > Mensagem 01
 > 
-> 
 > Mensagem 05
 > 
 > Mensagem 03
@@ -397,7 +396,6 @@ d)
 
 > Mensagem 01
 > 
-> 
 > Mensagem 02
 > 
 > Mensagem 03
@@ -410,7 +408,6 @@ d)
 e)
 
 > Mensagem 01
-> 
 > 
 > Mensagem 05
 > 
@@ -431,12 +428,17 @@ c) Asynchronous
 d) Arrow Functions
 e) Queue Functions
 
-5. Questão
-a) 
-b)
-c)
-d)
-e)
+5. Qual a finalidade dos métodos .then() e .catch(), respectivamente?
+a) Executa sempre que uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo;
+   Executa caso aconteça algum problema que impeça a execução correta das funções.
+b) Executa somente quando uma promise assume o estado Rejected;
+   Executa caso aconteça algum problema que impeça a execução correta das funções.
+c) Executa sempre que uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo
+   Executa caso aconteça algum problema que impeça a execução correta das funções.  
+d) Executa somente quando uma promise assume o estado Fulfilled, tendo resultado positivo ou negativo
+   Executa sempre ao final da função, indepente dos resultados obtidos.
+e) Executa somente quando uma promise assume o estado Pending;
+   Executa sempre ao final da função, indepente dos resultados obtidos.
 
 
 ---
@@ -464,7 +466,7 @@ Questão 4.
 
 Questão 5.
 
-> C
+> A
 > 
 
 ---
