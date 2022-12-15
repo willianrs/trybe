@@ -423,10 +423,15 @@ e)
 Como chamamos esse recurso do JavaScript?
 
 a) Callback
+
 b) Event Loop
+
 c) Asynchronous
+
 d) Arrow Functions
+
 e) Queue Functions
+
 
 5. Qual a finalidade dos métodos .then() e .catch(), respectivamente?
 
